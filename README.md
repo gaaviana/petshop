@@ -18,3 +18,10 @@ Ajustese e exclusões de elementos da instalação padrão do Next.js
 - Importação, configuração e aplicação de fonts da web usando `next/fonts`
 - Adição de mais metadados
 - Aplicação automática de favicon adicionando arquivo `icon.png` direto na pasta `app`
+
+## 02_paginas-basicas-links-ajustes-de-layout-metadados
+
+- Criação das paginas/rotas (usando pastas e arquivo page)
+- Definição de metadados específicos para cada pagina
+- Adição do componente `<Link>` para navegação entre as rotas
+- Ajustes diversos de estrutura HTML

@@ -1,10 +1,10 @@
 import { Metadata } from "next"
 
+export const metadata:Metadata = {
+    title: 'Produtos | PetShop',
+    description: 'Hora da compra para o seu Pet'
+}
 export default function Produtos() {
-    const metadata:Metadata = {
-        title: 'Produtos | PetShop',
-        description: 'Hora da compra para o seu Pet'
-    }
 
   return (
     <>

@@ -1,10 +1,10 @@
 import { Metadata } from "next"
 
+export const metadata:Metadata = {
+    title: 'Contato | PetShop',
+    description: 'Entre em contato conosco'
+}
 export default function Contato() {
-    const metadata:Metadata = {
-        title: 'Contato | PetShop',
-        description: 'Entre em contato conosco'
-    }
 
   return (
     <>
