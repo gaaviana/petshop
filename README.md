@@ -25,3 +25,10 @@ Ajustese e exclusões de elementos da instalação padrão do Next.js
 - Definição de metadados específicos para cada pagina
 - Adição do componente `<Link>` para navegação entre as rotas
 - Ajustes diversos de estrutura HTML
+
+## 03_componentes-cabecalho-menu-e-modulos-de-estilo
+
+- Criação de componentes `Cabecalho` e `Menu`
+- Definição de link ativo no menu utilizando o hook `usePathname`
+- Ativação a renderização de componente em modo cliente com `use client`
+- Importação e aplicação de módulos CSS
