@@ -7,7 +7,7 @@ type ContainerProps = {
 
 export default function Container({children} : ContainerProps) {
   return (
-    <div>
+    <div className={estilos.container}>
       {children}
     </div>
   )

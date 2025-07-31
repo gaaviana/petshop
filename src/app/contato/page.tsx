@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import estilos from "./contato.module.css";
+import Container from "@/components/Container";
 
 export const metadata: Metadata = {
   title: "Contato | PetShop",
@@ -10,6 +11,7 @@ export default function Contato() {
     <>
       <section className={estilos.conteudo}>
         <h2>Contato</h2>
+    <Container>
         <p>
           Você pode nos enviar um e-mail para{" "}
           <a href="mailto:contato@petshop.com">contato@petshop.com</a> ou nos
@@ -17,6 +19,7 @@ export default function Contato() {
         </p>
 
         <p>Se preferir, use o formulário abaixo:</p>
+      </Container>
       </section>
     </>
   );

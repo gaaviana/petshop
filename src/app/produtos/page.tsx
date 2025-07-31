@@ -1,5 +1,6 @@
 import { Metadata } from "next"
 import estilos from './produtos.module.css'
+import Container from "@/components/Container"
 
 export const metadata:Metadata = {
     title: 'Produtos | PetShop',
@@ -11,6 +12,7 @@ export default function Produtos() {
     <>
       <section className={estilos.conteudo}>
         <h2>Produtos</h2>
+    <Container>
        <p>
           Aqui você encontrará uma lista de produtos disponíveis no PetShop.
           Descubra tudo o que temos a oferecer para o seu pet!
@@ -57,6 +59,7 @@ export default function Produtos() {
             </ul>
           </article>
         </div>
+      </Container>
       </section>
     </>
   )

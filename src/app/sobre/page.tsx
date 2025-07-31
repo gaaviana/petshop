@@ -1,5 +1,6 @@
 import { Metadata } from "next"
 import estilos from './sobre.module.css'
+import Container from "@/components/Container"
 
 export const metadata:Metadata = {
     title: 'Sobre | PetShop',
@@ -11,6 +12,7 @@ export default function Sobre() {
     <>
       <section className={estilos.conteudo}>
         <h2>Sobre</h2>
+    <Container>
       <h3>Missão</h3>
         <p>
           Nossa missão é proporcionar o melhor cuidado e bem-estar para os
@@ -29,7 +31,9 @@ export default function Sobre() {
           qualidade, respeito ao meio ambiente e dedicação ao atendimento ao
           cliente.
         </p>
+      </Container>
       </section>
     </>
+    
   )
 }
