@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import {Roboto, Fjalla_One} from "next/font/google"
 import "./globals.css";
-import Link from "next/link";
 import Cabecalho from "@/components/Cabecalho";
 
 /* Configuea variáveis de fontes */
