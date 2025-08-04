@@ -1,25 +1,27 @@
 // src/app/page.tsx
 import ListaPosts from "@/components/ListaPosts";
 import estilos from "./page.module.css";
-import arrayPosts from "@/data/array-posts";
-import { log } from "console";
+import { Post } from "@/types/Post";
 
 export default async function Home() {
 
-  const res = await fetch('http://localhost:2112/posts');
+  const res = await fetch(`http://localhost:2112/posts`, {
+    // Revalidamos o cahe do next a cada requisição para garantir que os dados estejam sempre atualizados
+    next: {revalidate: 0}
+  });
 
   if(!res.ok){
     throw new Error('Erro ao buscar os posts: '+res.statusText)
   }
 
-  const posts = await res.json()
-  log(posts)
+  const posts:Post[] = await res.json()
+
 
   return (
     <section className={estilos.conteudo}>
       <h2>Pet Notícias</h2>
       <p>Aqui você encontra as últimas notícias sobre Pets.</p>
-      <ListaPosts posts={arrayPosts} />
+      <ListaPosts posts={posts} />
     </section>
   );
 }
