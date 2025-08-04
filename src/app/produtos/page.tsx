@@ -1,19 +1,19 @@
-import { Metadata } from "next"
-import estilos from './produtos.module.css'
-import Container from "@/components/Container"
+// src/app/produtos/page.tsx
+import Container from "@/components/Container";
+import estilos from "./produtos.module.css";
+import { Metadata } from "next";
 
-export const metadata:Metadata = {
-    title: 'Produtos | PetShop',
-    description: 'Hora da compra para o seu Pet'
-}
+export const metadata: Metadata = {
+  title: "Produtos | PetShop",
+  description: "Produtos disponíveis...",
+};
+
 export default function Produtos() {
-
   return (
-    <>
-      <section className={estilos.conteudo}>
-        <h2>Produtos</h2>
-    <Container>
-       <p>
+    <section className={estilos.conteudo}>
+      <h2>Produtos</h2>
+      <Container>
+        <p>
           Aqui você encontrará uma lista de produtos disponíveis no PetShop.
           Descubra tudo o que temos a oferecer para o seu pet!
         </p>
@@ -60,7 +60,6 @@ export default function Produtos() {
           </article>
         </div>
       </Container>
-      </section>
-    </>
-  )
+    </section>
+  );
 }

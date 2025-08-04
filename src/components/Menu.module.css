@@ -27,8 +27,7 @@
   }
 
   a.ativo {
-    background-color: pink;
-    color: black;
+    background-color: black;
   }
 
   @media screen and (min-width: 700px) {
@@ -38,4 +37,3 @@
     }
   }
 }
- 

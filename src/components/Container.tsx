@@ -1,14 +1,10 @@
-import { ReactNode } from 'react';
-import estilos from './Container.module.css'
+// src/components/Container.tsx
+import estilos from "./Container.module.css";
 
 type ContainerProps = {
-    children: ReactNode;
+  children: React.ReactNode;
 };
 
-export default function Container({children} : ContainerProps) {
-  return (
-    <div className={estilos.container}>
-      {children}
-    </div>
-  )
+export default function Container({ children }: ContainerProps) {
+  return <div className={estilos.container}>{children}</div>;
 }

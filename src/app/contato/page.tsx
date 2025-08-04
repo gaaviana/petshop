@@ -1,17 +1,18 @@
-import { Metadata } from "next";
-import estilos from "./contato.module.css";
+// src/app/contato/page.tsx
 import Container from "@/components/Container";
+import estilos from "./contato.module.css";
+import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Contato | PetShop",
-  description: "Entre em contato conosco",
+  description: "Fale conosco...",
 };
+
 export default function Contato() {
   return (
-    <>
-      <section className={estilos.conteudo}>
-        <h2>Contato</h2>
-    <Container>
+    <section className={estilos.conteudo}>
+      <h2>Contato</h2>
+      <Container>
         <p>
           Você pode nos enviar um e-mail para{" "}
           <a href="mailto:contato@petshop.com">contato@petshop.com</a> ou nos
@@ -20,7 +21,6 @@ export default function Contato() {
 
         <p>Se preferir, use o formulário abaixo:</p>
       </Container>
-      </section>
-    </>
+    </section>
   );
 }
