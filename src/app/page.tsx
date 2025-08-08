@@ -2,6 +2,7 @@
 import ListaPosts from "@/components/ListaPosts";
 import estilos from "./page.module.css";
 import { Post } from "@/types/Post";
+import SemPosts from "@/components/SemPosts";
 
 export default async function Home() {
 
@@ -20,8 +21,10 @@ export default async function Home() {
   return (
     <section className={estilos.conteudo}>
       <h2>Pet Notícias</h2>
-      <p>Aqui você encontra as últimas notícias sobre Pets.</p>
-      <ListaPosts posts={posts} />
+      {
+        /* renderização condicional */
+        posts.length === 0 ?  <SemPosts /> : <ListaPosts posts={posts} />
+      }
     </section>
   );
 }
