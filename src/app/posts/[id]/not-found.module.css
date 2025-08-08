@@ -1,0 +1,10 @@
+.conteudo {
+  h2::before {
+    content: "❌ ";
+  }
+  div {
+    text-align: center;
+    color: #666;
+  }
+}
+ 
