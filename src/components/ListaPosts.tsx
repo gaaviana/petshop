@@ -20,7 +20,7 @@ export default function ListaPosts({ posts }: ListaPostsProps) {
   const categorias = [...new Set(posts.map((post) => post.categoria))];
 
   // Definindo o state com tipos null (quando não há categoria selecionada) ou string (que é o tipo para nomes/textos referentes as categorias). Passamos null entre parenteses indicando que por padráo não há categoria selecionada.
-  const [categoriaAtiva, setCategoriaAtiva] = useState<null | string>("a");
+  const [categoriaAtiva, setCategoriaAtiva] = useState<null | string>(null);
 
   const postsFiltrados = categoriaAtiva ? posts.filter((post) => post.categoria === categoriaAtiva) : posts
   console.log(postsFiltrados);
@@ -32,9 +32,9 @@ export default function ListaPosts({ posts }: ListaPostsProps) {
     <>
       <FiltroCategorias />
 
-    {
-      postsFiltrados.length === 0 ? <SemPosts/> :
-         <div className={estilos.posts}>
+    {postsFiltrados.length === 0 && <SemPosts/>}
+
+      <div className={estilos.posts}>
         {postsFiltrados.map(({ id, titulo, subtitulo }) => (
           <article key={id}>
             <Link href={`/posts/${id}`}>
@@ -44,9 +44,6 @@ export default function ListaPosts({ posts }: ListaPostsProps) {
           </article>
         ))}
       </div>
-    }
-
-   
     </>
   );
 }
