@@ -1,8 +1,11 @@
+'use client'
 // src/components/ListaPosts.tsx
 import { Post } from "@/types/Post";
 import estilos from "./ListaPosts.module.css";
 import Link from "next/link";
 import FiltroCategorias from "./FiltroCategorias";
+import { log } from "console";
+import { useState } from "react";
 
 /* Configurando um tipo para este componente e,
 neste tipo, definimos a prop posts relacionando ela ao tipo
@@ -12,9 +15,19 @@ type ListaPostsProps = {
 };
 
 export default function ListaPosts({ posts }: ListaPostsProps) {
+  // gerando um novo array de categorias usadno map, garantindo qeu não há repetição de categorias usando spread e new set.
+  const categorias = [...new Set(posts.map((post) => post.categoria))];
+
+  // Definindo o state com tipos null (quando não há categoria selecionada) ou string (que é o tipo para nomes/textos referentes as categorias). Passamos null entre parenteses indicando que por padráo não há categoria selecionada.
+  const [categoriaAtiva, setCategoriaAtiva] = useState<null | string>(null);
+
+  const postsFiltrados = categoriaAtiva ? posts.filter((post) => post.categoria === categoriaAtiva) : posts
+
+  
+
   return (
     <>
-    <FiltroCategorias/>
+      <FiltroCategorias />
       <div className={estilos.posts}>
         {posts.map(({ id, titulo, subtitulo }) => (
           <article key={id}>
