@@ -6,6 +6,7 @@ import Link from "next/link";
 import FiltroCategorias from "./FiltroCategorias";
 import { log } from "console";
 import { useState } from "react";
+import SemPosts from "./SemPosts";
 
 /* Configurando um tipo para este componente e,
 neste tipo, definimos a prop posts relacionando ela ao tipo
@@ -19,17 +20,22 @@ export default function ListaPosts({ posts }: ListaPostsProps) {
   const categorias = [...new Set(posts.map((post) => post.categoria))];
 
   // Definindo o state com tipos null (quando não há categoria selecionada) ou string (que é o tipo para nomes/textos referentes as categorias). Passamos null entre parenteses indicando que por padráo não há categoria selecionada.
-  const [categoriaAtiva, setCategoriaAtiva] = useState<null | string>(null);
+  const [categoriaAtiva, setCategoriaAtiva] = useState<null | string>("a");
 
   const postsFiltrados = categoriaAtiva ? posts.filter((post) => post.categoria === categoriaAtiva) : posts
+  console.log(postsFiltrados);
+  
 
   
 
   return (
     <>
       <FiltroCategorias />
-      <div className={estilos.posts}>
-        {posts.map(({ id, titulo, subtitulo }) => (
+
+    {
+      postsFiltrados.length === 0 ? <SemPosts/> :
+         <div className={estilos.posts}>
+        {postsFiltrados.map(({ id, titulo, subtitulo }) => (
           <article key={id}>
             <Link href={`/posts/${id}`}>
               <h3>{titulo}</h3>
@@ -38,6 +44,9 @@ export default function ListaPosts({ posts }: ListaPostsProps) {
           </article>
         ))}
       </div>
+    }
+
+   
     </>
   );
 }
