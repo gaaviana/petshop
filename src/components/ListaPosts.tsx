@@ -1,4 +1,4 @@
-'use client'
+"use client";
 // src/components/ListaPosts.tsx
 import { Post } from "@/types/Post";
 import estilos from "./ListaPosts.module.css";
@@ -22,17 +22,18 @@ export default function ListaPosts({ posts }: ListaPostsProps) {
   // Definindo o state com tipos null (quando não há categoria selecionada) ou string (que é o tipo para nomes/textos referentes as categorias). Passamos null entre parenteses indicando que por padráo não há categoria selecionada.
   const [categoriaAtiva, setCategoriaAtiva] = useState<null | string>(null);
 
-  const postsFiltrados = categoriaAtiva ? posts.filter((post) => post.categoria === categoriaAtiva) : posts
+  /* Gerando uma nova lista de post podendo ter o filtro de categoria aplicado. Caso contrário, retorna todos os post. */
+  const postsFiltrados = categoriaAtiva
+    ? posts.filter((post) => post.categoria === categoriaAtiva)
+    : posts;
   console.log(postsFiltrados);
-  
-
-  
 
   return (
     <>
       <FiltroCategorias />
 
-    {postsFiltrados.length === 0 && <SemPosts/>}
+      {/* Caso não tenha posts, redenriza SemPosts */}
+      {postsFiltrados.length === 0 && <SemPosts />}
 
       <div className={estilos.posts}>
         {postsFiltrados.map(({ id, titulo, subtitulo }) => (
