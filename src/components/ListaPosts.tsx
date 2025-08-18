@@ -30,7 +30,11 @@ export default function ListaPosts({ posts }: ListaPostsProps) {
 
   return (
     <>
-      <FiltroCategorias />
+      <FiltroCategorias 
+      categorias={categorias} // array de categorias 
+      categoriaAtiva={categoriaAtiva} // string/null da categoriaAtiva
+      aoSelecionar={setCategoriaAtiva} // Passa a função para atualizar o state
+      />
 
       {/* Caso não tenha posts, redenriza SemPosts */}
       {postsFiltrados.length === 0 && <SemPosts />}
