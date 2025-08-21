@@ -2,19 +2,42 @@
 
 Projeto de uma aplicação web SPA usando Next.js, Typescript e Supabase (Baas - Back-End as a Service).
 
-## 07_Componentes-semPosy-e-notFound-da-rota-de-post
-- CRiação do componente `semPost.tsx` e aplicação de renderização condicional na page `home`
-- Criação da page `not-found.tsx` e aplicação na rota sinamica de posts usando verificação de erro status 404 e chamada da função `notFound()`
+## 08_filtro-de-categorias
 
-## 06_fake-api-usando-json-server-aplicando-rota-dinamica
+### Resumo do ciclo de comunicação da prop que passa uma função do pai (ListaPosts) para o filho (FiltroCategorias)
 
-- Instalação e configuração dp `json-server` como depedência de desenvolvimento
-- Utilização do `fetch` com `async/await` na pagina Home para consumir os posts da fake-api
-- Substituição do araay fixo de posts por dados da fake-api
-- Configuração de rota dinamica com carregamento de dados a partir de parâmetros da rota
+- Usuário clica em um botão do FiltroCategorias (Filho)
+- Esse clique (`onClick`) "chama" a prop `aoSelecionar` passando pra ela a categoria escolhida (por exemplo, 'bem-estar')
+- O `aoSelecionar` na verdade é um apontamento para o `setCategoriaAtiva` definida no pai (ListaPosts)
+- O React/Next atualiza o estado (o state `categoriaAtiva`) do pai
+- O pai (ListaPosts) reexecuta com o novo estado, exibindo os posts conforme a categoria ativa
+- O `postsFiltrados` é atualizado e os posts filtrados aparecem.
+
+Em resumo, o filho **não muda o estado sozinho**. Ele só **avisa** o pai.
+
+Quem tem o estado, tem o controle.
+
+---
+
+## 07_componentes-SemPosts-e-notFound-da-rota-de-posts
+
+- Criação do componente `SemPosts.tsx` e aplicação de renderização condicional na page `Home`
+- Criação da page `not-found.tsx` e aplicação na rota dinâmica de posts usando verificação de erro status 404 e chamada da função `notFound()`.
+
+---
+
+## 06_fake-api-usando-json-server-e-aplicando-rota-dinamica
+
+- Instalação e configuração do `json-server` como dependência de desenvolvedor: Para instalar: `npm install json-server --save-dev`
+- Utilização do `fetch` com `async/await` na página Home para consumir os posts da fake-api
+- Exclusão do array de posts
+- Substituição do array fixo de posts por dados da fake-api
+- Configuração de rota dinâmica com carregamento de dados a partir de parâmetros da rota
 - Uso de `Promise` como tipo para a prop `params`
 - Geração de metadados dinâmicos usando a função `generateMetadata`
 - Refatoração da programação de busca de dados na fake-api usando uma função dedicada (`buscarPostPorId`)
+
+---
 
 ## 05_home-com-lista-de-posts-a-partir-de-um-array
 

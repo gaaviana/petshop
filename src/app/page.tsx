@@ -4,27 +4,23 @@ import estilos from "./page.module.css";
 import { Post } from "@/types/Post";
 import SemPosts from "@/components/SemPosts";
 
+// Importando os recursos da lib supabase
+import { supabase } from "@/lib/supabase";
+
 export default async function Home() {
+  const { data, error } = await supabase.from("posts").select("*");
 
-  const res = await fetch(`http://localhost:2112/posts`, {
-    // Revalidamos o cahe do next a cada requisição para garantir que os dados estejam sempre atualizados
-    next: {revalidate: 0}
-  });
-
-  if(!res.ok){
-    throw new Error('Erro ao buscar os posts: '+res.statusText)
+  if (error) {
+    throw new Error("Erro ao buscar os posts: " + error.message);
   }
 
-  const posts:Post[] = await res.json()
-
+  const posts: Post[] = data;
 
   return (
     <section className={estilos.conteudo}>
       <h2>Pet Notícias</h2>
-      {
-        /* renderização condicional */
-        posts.length === 0 ?  <SemPosts /> : <ListaPosts posts={posts} />
-      }
+
+      {posts.length === 0 ? <SemPosts /> : <ListaPosts posts={posts} />}
     </section>
   );
 }
