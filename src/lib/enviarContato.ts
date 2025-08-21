@@ -8,9 +8,14 @@ export async function enviarContato(dadosForm: FormData) {
     const email = dadosForm.get("email")?.toString().trim();
     const mensagem = dadosForm.get("mensagem")?.toString().trim();
 
+    // console.log(dadosForm);
+    
+
     /* validação basica no back-end */
     if(!nome || !email || !mensagem){
         throw new Error("Todos os campos devem ser preenchidos")
+        // console.log();
+        
     }
 
     /* Executando o insert atraves da lib supabase. Capturamos tambem */

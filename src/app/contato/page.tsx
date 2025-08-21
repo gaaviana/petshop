@@ -22,7 +22,7 @@ export default function Contato() {
 
         <p>Se preferir, use o formulário abaixo:</p>
         
-        <Formulario/>
+        <Formulario />
       </Container>
     </section>
   );
