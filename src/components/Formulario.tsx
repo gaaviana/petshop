@@ -15,7 +15,7 @@ export default function Formulario() {
   const [mensagem, setMensagem] = useState("");
 
   // estados para o tipo da mensagem
-  const [tipoMensagem, setTipoMensagem] = useState<"sucesso" | "erro" | "">();
+  const [tipoMensagem, setTipoMensagem] = useState<"sucesso" | "erro" | "">("");
 
   async function processarDados(dadosForm: FormData) {
     /* Resey dos states votando ao valor padrao */
@@ -45,6 +45,7 @@ export default function Formulario() {
           name="nome"
           id="nome"
           placeholder="Digite o nome completo"
+          required
         />
       </div>
 
@@ -55,6 +56,7 @@ export default function Formulario() {
           name="email"
           id="email"
           placeholder="Informe um e-mail valido"
+          required
         />
       </div>
 
@@ -65,12 +67,16 @@ export default function Formulario() {
           id="mensagem"
           rows={5}
           placeholder="escreva sua mensagem aqui"
+          required
         ></textarea>
       </div>
 
       <div className={estilos.campo}>
        <BotaoEnviar/>
       </div>
+      {
+        mensagem && <p  className={`${estilos.mensagem} ${estilos[tipoMensagem]}`}>{mensagem}</p>
+      }
     </form>
   );
 }
