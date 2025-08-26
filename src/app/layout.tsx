@@ -25,10 +25,17 @@ export const metadata: Metadata = {
   keywords: ["petshop", "animais", "cachorros", "gatos"],
   authors: [
     {
-      name: "Tiago",
-      url: "https://github.com/tiagotecinternet24",
+      name: "Viana",
+      url: "https://github.com/gaaviana",
     },
   ],
+  manifest : "/manifest.json",
+  appleWebApp : {
+    capable: true,
+    statusBarStyle: "default",
+    title: "petshop"
+  }
+  /* Se tivessemos icones especificos para dispositivos apples, vc tambem colocaria aqui. */
 };
 
 export default function RootLayout({
